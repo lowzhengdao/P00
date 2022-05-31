@@ -72,4 +72,50 @@ public class CalculatorTest {
 
 	
 	}
+	@Test
+	public void NormalTestCase() {		
+		int a = 5;
+		int b = 6;
+		
+		Calculator cal = new Calculator();
+		int actual = cal.add(a, b);
+		
+		int expected = 11;
+		assertEquals(actual, expected);
+	}
+	@Test
+	public void BoundaryTestCase() {		
+		int a = 0;
+		int b = 0;
+		
+		Calculator cal = new Calculator();
+		int actual = cal.add(a, b);
+		
+		int expected = 0;
+		assertEquals(actual, expected);
+
+	}	
+	@Test
+	public void NormalTestCaseNegative() {		
+		int a = -10;
+		int b = -12;
+		
+		Calculator cal = new Calculator();
+		int actual = cal.add(a, b);
+		
+		int expected = -22;
+		assertEquals(actual, expected);
+	}
+	@Test
+	public void ErrorTestCase() {		
+		int a = 1000; 
+		int b = -12;
+		
+		Calculator cal = new Calculator();
+				
+		int actual = cal.add(a, b);
+		
+		int expected = -22; // Wrong expected value, resulting in error
+		assertEquals(actual, expected);
+	}
 }
